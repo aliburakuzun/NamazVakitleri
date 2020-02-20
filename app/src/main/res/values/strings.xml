@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NamazVakitleri</string>
+    <string name="menu_addCity">KonumEkle</string>
+    <string name="menu_prayTime">Namaz Vakitleri</string>
+    <string name="menu_prayCalendar">İmsakiye</string>
+    <string name="menu_importantDay">Dini Günler</string>
 </resources>

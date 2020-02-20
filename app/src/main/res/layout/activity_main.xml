@@ -8,11 +8,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -20,13 +24,34 @@
             android:layout_height="wrap_content"
             android:background="#0277BD" />
 
+        <TextView
+            android:id="@+id/clock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="480dp"
+            android:gravity="center"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/lightGrey"
+        app:itemBackground="@color/lightGrey"
+        app:itemTextColor="@color/design_default_color_on_secondary"
         app:menu="@menu/menu_tasarim" />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Item" />
-    <item android:title="Item" />
+    <item
+        android:id="@+id/menu_item_addLocation"
+        android:icon="@drawable/ic_pin"
+        android:title="@string/menu_addCity"
+        app:showAsAction="always|withText" />
+
+    <item
+        android:id="@+id/menu_item_prayTime"
+        android:icon="@drawable/ic_time"
+        android:title="@string/menu_prayTime"
+        app:showAsAction="always|withText" />
+
+    <item
+        android:id="@+id/menu_item_prayCalendar"
+        android:icon="@drawable/ic_imsakiye"
+        android:title="@string/menu_prayCalendar"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/menu_item_importantDay"
+        android:icon="@drawable/ic_moon"
+        android:title="@string/menu_importantDay"
+        app:showAsAction="always|withText"
+
+        />
+
 </menu>

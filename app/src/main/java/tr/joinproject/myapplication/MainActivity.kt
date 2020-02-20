@@ -2,11 +2,14 @@ package tr.joinproject.myapplication
 
 import android.os.Bundle
 import android.os.Handler
+import android.view.MenuItem
 import android.view.View
 import android.view.View.VISIBLE
+import android.widget.FrameLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,18 +17,21 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    lateinit var toolbar: Toolbar
+    lateinit var navigation: NavigationView
+    lateinit var drawer: DrawerLayout
+    lateinit var frameLayout: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        val navigation: NavigationView = findViewById(R.id.navigation)
-        val drawer: DrawerLayout = findViewById(R.id.drawer)
-
+        toolbar = findViewById(R.id.toolbar)
+        navigation = findViewById(R.id.navigation)
+        drawer = findViewById(R.id.drawer)
+        frameLayout = findViewById(R.id.frameLayout)
 
         //saat için
         val today = Date()
@@ -39,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         val toggle: ActionBarDrawerToggle = ActionBarDrawerToggle(this, drawer, toolbar, 0, 0)
         toggle.syncState()
+        navigation.setNavigationItemSelectedListener(this)
 
 
     }
@@ -68,4 +75,20 @@ class MainActivity : AppCompatActivity() {
         }).start()
 
     }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == R.id.menu_item_addLocation) {
+
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.frameLayout, FragmentLocation())
+                .commit()
+
+        }
+        drawer.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+
 }
